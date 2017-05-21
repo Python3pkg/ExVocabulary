@@ -89,7 +89,7 @@ class ExVocabulary(object):
             "https://corpus.vocabulary.com/api/1.0/examples.json?query={word}&maxResults={max_num}&startOffset=0&filter=0",
         }
 
-        if api in api_request_links.keys():
+        if api in list(api_request_links.keys()):
             return api_request_links[api]
         else:
             return False
@@ -239,7 +239,7 @@ class ExVocabulary(object):
                 part_of_speech[key] = value
                 if part_of_speech:
                     index = 0
-                    for key, value in part_of_speech.items():
+                    for key, value in list(part_of_speech.items()):
                         final_list.append({"seq": index,
                                            "text": key,
                                            "example:": value})
